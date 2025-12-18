@@ -28,7 +28,7 @@ mongoDB 原始数据：
 
 # 方式 1：使用 Hexo 标签（推荐）
 
-`{% asset_img example.jpg 这是图片描述 %}`
+`{% asset_img 微信图片_20251218100151.jpg 这是图片描述 %}`
 
 # 方式 2：使用相对路径
 
