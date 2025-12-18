@@ -8,7 +8,7 @@ MongoDB 本身不定义结构，项目中必须使用 pydantic 来定义 Mongo �
 
 mongoDB原始数据：
 
-{% asset_img mongoDB原始数据.png 图片描述 %}
+{% asset_img mongoDB.png 图片描述 %}
 
 ![](C:\Users\Lenovo\AppData\Roaming\marktext\images\2025-12-17-16-02-19-e78f669731658ede6b843a250450a2e.png)
 
@@ -21,3 +21,4 @@ _id 类型特殊（ObjectId），pydantic 不认识ObjectId，故FastAPI无法�
 # 三、定义 MongoDB 数据
 
 ![](C:\Users\Lenovo\AppData\Roaming\marktext\images\2025-12-17-16-13-38-image.png)
+
