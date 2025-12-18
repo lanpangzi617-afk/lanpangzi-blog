@@ -32,7 +32,7 @@ mongoDB 原始数据：
 
 # 方式 2：使用相对路径
 
-`![图片描述](example.jpg)`
+`![图片描述](lanpangzi_blog/source/_post/images/mongoDB原始数据.jpg)`
 
 # 方式 3：带链接的图片
 
