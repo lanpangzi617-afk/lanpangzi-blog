@@ -8,7 +8,7 @@ MongoDB 本身不定义结构，项目中必须使用 pydantic 来定义 Mongo �
 
 mongoDB原始数据：
 
-(images/mongoDB原始数据.png )
+{% asset_img 截图名称.png 图片描述 %}
 
 ![](C:\Users\Lenovo\AppData\Roaming\marktext\images\2025-12-17-16-02-19-e78f669731658ede6b843a250450a2e.png)
 
