@@ -4,7 +4,7 @@ date: 2025-12-21 00:43:49
 tags:
 ---
 
-三元表达式
+# 三元表达式
 
 例如：id = x if x < y else y
 
@@ -56,7 +56,7 @@ range([statrt], stop[, step])
 
 3. max() 返回序列或参数集合的最大值
 
-4.  sum(iterable[,start = 0]) 返回序列 iterable 和可选参数 start 的总和
+4. sum(iterable[,start = 0]) 返回序列 iterable 和可选参数 start 的总和
 
 5. sorted() 默认从小到大排序
 
@@ -71,3 +71,17 @@ range([statrt], stop[, step])
    zip(a,b)
    
    输出为：[(1,3),(2,4),(3,5)]
+
+# 收集参数（可变参数）
+
+在参数前加一个 ”*“ 的符号
+
+例如：def test(*params exp):
+
+                print(len(params),exp)
+
+test(1,23,"abc",exp = 8)
+
+3,8
+
+建议：若在可变参数后有一个其他参数，需给此参数赋一个默认值
