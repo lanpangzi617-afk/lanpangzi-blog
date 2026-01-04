@@ -156,7 +156,7 @@ frozenset()：表示不可变集合，即不可添加
 
 # 打开文件
 
-{%asset_img open_file.png %}
+{% asset_img open_file.png %}
 
 # OS模块
 
@@ -180,8 +180,8 @@ load() 读取文件
 
 # 处理异常的方法
 
-{%asset_img try_except.png %}
+{% asset_img try_except.png %}
 
 raise ** 抛出异常
 
-{%asset_img raise.png %}
+{% asset_img raise.png %}
