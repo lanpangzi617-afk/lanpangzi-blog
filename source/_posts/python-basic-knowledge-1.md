@@ -150,4 +150,36 @@ print(set)
 
 add()：添加元素
 
-frozenset()：表示不可变集合，即不可添加
+frozenset()：表示不可变集合，即不可添加 
+
+# 打开文件
+
+![](C:\Users\Lenovo\AppData\Roaming\marktext\images\2025-12-30-13-41-29-image.png)
+
+# OS模块
+
+一些常用方法：
+
+mkdir：在当前目录下创建单个文件
+
+例如：os.mkdir("E:\\\A")
+
+remove(path)：删除文件
+
+rmdir(path)：删除空的文件夹
+
+rename(old,new)：将 old 重命名为 new
+
+# pickle模块
+
+使用 dump() 方法将列表、字典保存到文件中
+
+load() 读取文件
+
+# 处理异常的方法
+
+![](C:\Users\Lenovo\AppData\Roaming\marktext\images\2026-01-04-18-07-53-image.png)
+
+raise ** 抛出异常
+
+![](C:\Users\Lenovo\AppData\Roaming\marktext\images\2026-01-04-18-11-21-image.png)
