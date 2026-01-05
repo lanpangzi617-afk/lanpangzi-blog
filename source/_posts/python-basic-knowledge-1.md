@@ -158,6 +158,8 @@ frozenset()：表示不可变集合，即不可添加
 
 {% asset_img open_file.png 这是图片描述 %}
 
+![](E:\lanpangzi-blog\source\_posts\python-basic-knowledge-1\open_file.png)
+
 # OS模块
 
 一些常用方法：
@@ -182,6 +184,10 @@ load() 读取文件
 
 {% asset_img try_except.png 这是图片描述 %}
 
+![](E:\lanpangzi-blog\source\_posts\python-basic-knowledge-1\try_except.png)
+
 raise ** 抛出异常
 
 {% asset_img raise.png 这是图片描述 %}
+
+![](E:\lanpangzi-blog\source\_posts\python-basic-knowledge-1\raise.png)
