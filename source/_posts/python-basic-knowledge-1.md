@@ -191,3 +191,91 @@ raise ** 抛出异常
 {% asset_img raise.png 这是图片描述 %}
 
 ![](E:\lanpangzi-blog\source\_posts\python-basic-knowledge-1\raise.png)
+
+# EasyGui
+
+EasyGui是python的一个轻量级 GUI 库，所有交互通过弹窗实现，不需要写回调函数、布局管理等复杂代码，非常适合快速制作小型交互工具或脚本的人机交互界面。
+
+常见的几种功能：
+
+消息框：msgbox
+
+{% msgbox.png %}
+
+![](C:\Users\Lenovo\AppData\Roaming\marktext\images\2026-01-08-18-11-49-image.png)
+
+输入框：enterbox
+
+{% enterbox.png %}
+
+![](C:\Users\Lenovo\AppData\Roaming\marktext\images\2026-01-08-18-12-35-image.png)
+
+选择框：choicebox
+
+{% choicebox.png %}
+
+![](C:\Users\Lenovo\AppData\Roaming\marktext\images\2026-01-08-18-13-24-image.png)
+
+按钮框：buttonbox
+
+{% buttonbox.png %}
+
+![](C:\Users\Lenovo\AppData\Roaming\marktext\images\2026-01-08-18-13-48-image.png)
+
+文件选择框：fileopenbox
+
+{% fileropenbox.png %}
+
+![](C:\Users\Lenovo\AppData\Roaming\marktext\images\2026-01-08-18-14-12-image.png)
+
+# 类和对象
+
+**类（Class）**：是创建对象的“模板”，定义了对象的属性和方法
+
+**对象（Object）**：是类的实例
+
+对象 = 属性 + 方法
+
+**封装**：将对象的属性和方法“包裹”起来，之对外暴露必要的接口（方法），避免外部直接修改属性导致错误。
+
+{% capsulation.png %}
+
+![](C:\Users\Lenovo\AppData\Roaming\marktext\images\2026-01-08-18-30-45-image.png)
+
+**继承**：让一个类（子类/派生类）继承另一个类（父类/基类）的属性和方法，子类可以复用父类的代码，也可以扩展自己的功能。
+
+{% inherit.png %}
+
+![](C:\Users\Lenovo\AppData\Roaming\marktext\images\2026-01-08-18-34-45-image.png)
+
+若子类需在父类属性 / 方法的基础上添加属性 / 方法，需先调用父类的属性 / 方法。例如：super().**()
+
+{% super.png %}
+
+![](C:\Users\Lenovo\AppData\Roaming\marktext\images\2026-01-08-19-11-01-image.png)
+
+**多态**：同一种方法名，在不同的子类中有不同的实现，调用时根据对象的类型自动执行对应的方法，实现“一个接口，多种形态”。
+
+{% polymorphic.png %}
+
+![](C:\Users\Lenovo\AppData\Roaming\marktext\images\2026-01-08-18-39-04-image.png)
+
+**self**：类中实例方法的第一个参数，指向当前类创建的具体对象（实例）本身。
+
+**init(self)**：python 类的初始化方法，用来初始化对象的属性。
+
+**公有（Public）**：默认的属性 / 方法，类的内部、外部、子类都能直接访问。
+
+**私有（Private）**：属性 / 方法以__开头，仅能在类的内部直接访问。
+
+# 类，类对象和实例对象
+
+{% class.png %}
+
+![](C:\Users\Lenovo\AppData\Roaming\marktext\images\2026-01-08-19-21-08-image.png)
+
+若属性与方法名相同，属性会覆盖掉方法
+
+{% same.png %}
+
+![](C:\Users\Lenovo\AppData\Roaming\marktext\images\2026-01-08-19-24-19-image.png)
