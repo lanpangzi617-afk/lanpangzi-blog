@@ -2,7 +2,7 @@
 title: python_basic_knowledge
 date: 2025-12-21 00:43:49
 tags: python基础知识
-cate
+categories: 教程
 ---
 
 # 三元表达式
