@@ -9,7 +9,11 @@ tags:
 
 # 三元表达式
 
-例如：id = x if x < y else y
+例如：
+
+```python
+id = x if x < y else y
+```
 
 意思是如果 x < y 则把 x 赋值给 id ，否则就把 y 赋值给 id。
 
@@ -17,13 +21,19 @@ tags:
 
 assert 这个关键字被称为断言，当 assert 后面的条件为假时，a 程序会自动崩溃并抛出 AssertionError 的异常。
 
-例如：assert 3 > 4
+例如：
+
+```python
+assert 3 > 4
+```
 
 此时程序就会抛出 AssertionError 异常
 
 # range()
 
+```python
 range([statrt], stop[, step])
+```
 
 用中括号括起来的两个参数是可选的，step = 1 表示第三个参数的值默认为 1，range 作用是生成一个从 start 参数的值开始到 stop-1 参数的值结束的数字序列。
 
@@ -47,7 +57,9 @@ range([statrt], stop[, step])
 
 格式化 format()：
 
+```python
 "{0:.1f}{1}".format(25.687,"GB")
+```
 
 返回 25.7GB
 
@@ -84,6 +96,7 @@ range([statrt], stop[, step])
 print(len(params),exp)
 
 test(1,23,"abc",exp = 8)
+```
 
 3,8
 
@@ -147,9 +160,12 @@ update()：通过字典去更新另一个字典
 
 2.使用 set()工厂函数
 
-例如： set = set([1,2,3,4,4])
+例如： 
 
+```python
+set = set([1,2,3,4,4])
 print(set)
+```
 
 [1,2,3,4]#自动去重
 
@@ -185,7 +201,7 @@ load() 读取文件
 
 # 处理异常的方法
 
-{% asset_img try_except.png 这是图片描述 %}
+{% asset_img try_except.png  %}
 
 ![](E:\lanpangzi-blog\source_posts\python-basic-knowledge-1\try_except.png)
 
