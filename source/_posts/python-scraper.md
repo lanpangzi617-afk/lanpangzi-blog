@@ -290,3 +290,44 @@ if __name__ == "__main__":
     for res in results:
         print(res)
 ```
+
+# 7. 异步协程
+
+异步协程（Async Coroutine）是处理高并发 IO 任务（比如爬虫，接口调用）的高效方式。
+
+- async：定义携程函数（异步函数）
+
+- await：暂停协程，等待异步任务完成（仅能在协程函数内使用）
+
+- asyncio：python 内置的异步核心模式，管理协程的运行、调度。
+
+```python
+import asyncio
+import aiohttp #异步 http 库（替代requests
+import time
+async def crawl(url):
+    async with aiohttp.ClientSession() as session:
+        async with session.get(url) as response:
+            await asyncio.sleep(1)
+            return f"{url}爬取完成"
+
+async def main():
+    urls = [f"https://example.com{i} for i in range (5)]
+    tasks = [asyncio.create_task(crawl(url) for url in urls]
+    results = await asyncio.gather(*tasks)#批量等待多个任务完成，返回结果列表
+    for res in results:
+        print(res)
+
+if __name__ =="__main__":
+    start = time.time()
+    asyncio.run(main)
+    print(f"异步总耗时：{time.time() - start:.2f}秒) 
+```
+
+- 直接调用协程函数不会执行，只会返回一个协程对象，需通过 async.create_task() 封装为任务，或 await 执行。
+
+- await：只能在协程函数内使用，只能跟可等待对象（协程、任务、Future），不能跟普通函数，作用是“暂停当前协程，等待后面的异步任务完成，期间事件循环可以执行其他任务”。
+
+- 异步代码中，不能用同步的 IO 操作（比如：requests.get()、time.sleep()）否则会阻塞整个时间循环；替代方案：aiohttp 替代 requests，asyncio.sleep() 替代 time.sleep()。
+
+- 事件循环重复运行：一个程序中 asyncio.run() 只能调用一次（主入口），多次调用会报错。
