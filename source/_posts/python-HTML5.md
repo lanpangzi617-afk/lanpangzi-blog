@@ -707,7 +707,6 @@ action 属性定义了提交表单时，应该把所有收集的数据发送给�
 textarea：是一个多行纯文本编辑控件，适用于允许用户输入大量自由格式文本的场景，例如评论或反馈表单
 
 ```html
-<ul>
       <li>
         留言：<textarea name="msg" placeholder="请输入留言" rows="5" cols="15"></textarea>
       </li>
