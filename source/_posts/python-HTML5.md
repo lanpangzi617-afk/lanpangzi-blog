@@ -704,6 +704,60 @@ action 属性定义了提交表单时，应该把所有收集的数据发送给�
 
 #### 10.2.2 textarea 表单：多行文本输入框
 
+textarea：是一个多行纯文本编辑控件，适用于允许用户输入大量自由格式文本的场景，例如评论或反馈表单
+
+```html
+<ul>
+      <li>
+        留言：<textarea name="msg" placeholder="请输入留言" rows="5" cols="15"></textarea>
+      </li>
+```
+
+{% asset_img reslut8.png %}
+
+![](C:\Users\Lenovo\AppData\Roaming\marktext\images\2026-01-18-23-31-06-image.png)
+
+| 常见属性        | 说明             |
+| ----------- | -------------- |
+| name        | 表单名称           |
+| placeholder | 提示信息           |
+| rows        | 文本行数，正整数，默认为 2 |
+| cols        | 文本列数，正整数，默认 20 |
+
+文本与 textarea 利用 CSS设定样式，比如宽高边框等
+
 #### 10.2.3 select 下拉表单：下拉选择框
 
+select：表示一个提供选项菜单的控件
+
+select 元素是容器，option 是每一个选项标签，每个选项要跟一个值，要想默认选中一个选项，可以添加 selected 属性
+
+因为 select 很难修改为好看的效果，大部分下拉列表可以跳过其他标签模拟实现
+
+```html
+      <li>
+        地区：<select name="city">
+          <option value="广东">广东</option>
+          <option value="上海" selected>上海</option>
+          <option value="北京">北京</option>
+        </select>
+      </li>
+```
+
+{% asset_img reslut9.png %}
+
+![](C:\Users\Lenovo\AppData\Roaming\marktext\images\2026-01-18-23-33-22-image.png)
+
 #### 10.2.4 button 按钮：自定义按钮
+
+button：定义一个按钮，元素内部可以放置内容，比如文本或图像
+
+语法：
+
+```html
+<button>登录</button>
+```
+
+disabled属性：可以禁用按钮，无法点击
+
+![](C:\Users\Lenovo\AppData\Roaming\marktext\images\2026-01-18-23-34-30-image.png)
