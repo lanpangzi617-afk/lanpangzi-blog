@@ -712,7 +712,7 @@ textarea：是一个多行纯文本编辑控件，适用于允许用户输入大
       </li>
 ```
 
-{% asset_img reslut8.png %}
+{% asset_img result8.png %}
 
 ![](C:\Users\Lenovo\AppData\Roaming\marktext\images\2026-01-18-23-31-06-image.png)
 
