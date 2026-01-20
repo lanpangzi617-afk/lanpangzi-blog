@@ -695,12 +695,31 @@ action 属性定义了提交表单时，应该把所有收集的数据发送给�
 | value   | 表单值      |
 | checked | 是否默认选中   |
 
+```html
+
+```
+
+{% asset_img result8.png %}
+
+![](C:\Users\Lenovo\AppData\Roaming\marktext\images\2026-01-19-19-01-34-image.png)
+
 3. 文件域 file
 
 | 其他属性    | 说明                    |
 | ------- | --------------------- |
 | mutiple | 允许选择多个文件              |
 | accept  | 规定选择的文件类型，多个类型之间用逗号分割 |
+
+```html
+      <li>
+        头像：
+        <input type="file" name="file" multiple accept=".jpg,.png,.webp">
+      </li>
+```
+
+{% asset_img result9.png %}
+
+![](C:\Users\Lenovo\AppData\Roaming\marktext\images\2026-01-19-19-02-48-image.png)
 
 #### 10.2.2 textarea 表单：多行文本输入框
 
@@ -712,7 +731,7 @@ textarea：是一个多行纯文本编辑控件，适用于允许用户输入大
       </li>
 ```
 
-{% asset_img result8.png %}
+{% asset_img result10.png %}
 
 ![](C:\Users\Lenovo\AppData\Roaming\marktext\images\2026-01-18-23-31-06-image.png)
 
@@ -743,7 +762,7 @@ select 元素是容器，option 是每一个选项标签，每个选项要跟一
       </li>
 ```
 
-{% asset_img reslut9.png %}
+{% asset_img result11.png %}
 
 ![](C:\Users\Lenovo\AppData\Roaming\marktext\images\2026-01-18-23-33-22-image.png)
 
@@ -759,4 +778,60 @@ button：定义一个按钮，元素内部可以放置内容，比如文本或�
 
 disabled属性：可以禁用按钮，无法点击
 
+{% asset_img result12.png %}
+
 ![](C:\Users\Lenovo\AppData\Roaming\marktext\images\2026-01-18-23-34-30-image.png)
+
+### 10.3 辅助标签
+
+label：用户界面中某个元素的说明，关联输入控件的文本标签，提升可访问性（点击标签可聚焦输入框），刚好的提高表单的用户体验。
+
+两种使用方式：
+
+1. 使用 for 和 id 相关联
+
+```html
+      <li>
+        性别：
+        <input type="radio" name="gender" value="0" checked id="nv">
+        <label for="nv">女</label>
+        <input type="radio" name="gender" value="1" id="nan">
+        <label for="nan">男</label>
+      </li>
+```
+
+2. 直接包含
+
+```html
+      <li>
+        爱好：
+        <label>
+          <input type="checkbox" name="hobby" value="0" checked>打羽毛球 </label>
+        <label><input type="checkbox" name="hobby" value="1">旅游</label>
+        <label><input type="checkbox" name="hobby" value="2">游戏</label>
+      </li>
+```
+
+### 10.4 字符实体
+
+字符实体是一段以连字号（&）开头、以分号（；）结尾的文本（字符串）。常用于显示保留字符和不可见的字符（如不换行空格）
+
+```html
+<div>
+    &nbsp;空格
+    &gt;大于号
+    &lt;小于号
+    &copy;版权符号
+    &reg;注册商标
+    &yen;人民币符号
+    &cent;分
+    &pound;英镑符号
+    &euro;欧元符号
+    &amp;与符号
+    &quot;双引号
+  </div>
+```
+
+{% asset_img result13.png %}
+
+![](C:\Users\Lenovo\AppData\Roaming\marktext\images\2026-01-20-14-06-00-image.png)
