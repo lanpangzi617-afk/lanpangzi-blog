@@ -639,3 +639,289 @@ font:font-style font-weight font-size/line-height font-family
 | 类 / 属性 / 伪类 | .class, [type="text"] | (0, 0, 1, 0) | 每个类/属性/伪类增加 0,0,1,0 |
 | 类型（标签）/伪元素  | div, ::after          | (0, 0, 0, 1) | 每个标签/伪元素增加 0,0,0,1  |
 | 通配符/继承      | *, 继承的样式              | (0, 0, 0, 0) | 通配符和继承权重最低          |
+
+# 7. 盒子模型
+
+所有的元素都被一个个的“盒子”包围着，在 CSS 中，一般分为**区块盒子**和**行内盒子**。
+
+**区块盒子（block）**：
+
+1. 盒子会产生换行
+
+2. width 和 height 属性可以发挥作用
+
+3. 不设置宽度则默认是父元素空间的 100%
+
+4. 内边距、外边距和边框会撑大元素
+
+5. 常见的比如：div、p、h、ul、table等
+
+**行内盒子（inline）**：
+
+1. 盒子不会产生换行
+
+2. width 和 height 属性将不起作用
+
+3. 垂直方向的内边距、外边距不起效果
+
+4. 水平方向的内边距、外边距会有效果
+
+5. 常见的比如：span、em、a、strong等
+
+### 7.1 盒子模型组成
+
+CSS 盒子模型整体上适用于区块盒子，包含盒子内容、内边距、外边距、边框四部分
+
+1. 盒子内容：显示内容的区域，由内容或者指定宽度高度来决定内容大小
+
+2. 内边距 padding：内容距离边框之间的距离
+
+3. 边框 border：边框盒子包住内容和内边距
+
+4. 外边距 margin：更改盒子与其他元素值阿金的距离
+
+#### 7.1.1 边框
+
+**属性值**：
+
+border：边框粗细 边框样式 边框颜色；
+
+- 边框有三部分属性值组成，之间必须**空格**隔开
+
+- 三部分属性值**没有先后顺序**
+
+| 边框样式   | 描述   | 视觉效果     |
+| ------ | ---- | -------- |
+| dotted | 点状边框 | 圆点组成的虚线  |
+| dashed | 虚线边框 | 短横线组成的虚线 |
+| solid  | 实线边框 | 单一线条     |
+
+若遇到需设置四个边框不同样式的情况，可根据方位名词：top、bottom、left、right
+
+1. border-top：1px solid pink；
+
+2. border-botton：1px solid pink；
+
+3. border-left：1px solid pink；
+
+4. border-right：1px solid pink；
+
+**圆角边框**：border-radius：数字或百分比
+
+```css
+.button {
+    border-radius: 10px;
+}
+```
+
+实现：
+
+- 胶囊圆角：长方形设置圆角为宽度的一半；
+
+- 圆形：正方形设置圆角为高度一半或者50%
+
+若需对四个角分别设置样式，可：
+
+| 圆角写法                               | 作用                          |
+| ---------------------------------- | --------------------------- |
+| border-radius：10px;                |                             |
+| border-radius:10px 20px;           | 左上 右下是10px；右上 左下是20px       |
+| border-radius:10px 20px 30px;      | 左上是10px；右上左下是20px；右下30px    |
+| border-radius:10px 20px 30px 40px; | 左上10px；右下20px；右下30px；左下40px |
+
+border-radius：顺时针记忆（左上角 右上角 右下角 左下角）
+
+#### 7.1.2 内边距
+
+内边距（padding）多个值用空格隔开，顺时针记忆
+
+| 内边距写法                        | 作用                      |
+| ---------------------------- | ----------------------- |
+| padding:10px;                | 上下左右 4 个内边距都是 10px      |
+| padding：10px 20px;           | 上下内边距是10px，左右内边距是20px   |
+| padding:10px 20px 30px;      | 上是10px，左右是20px，下是30px   |
+| padding:10px 20px 30px 40px; | 上10px，右20px，下30px，左40px |
+
+单边设置：根据方位名词：top、bottom、left、right（与边框设置一样）
+
+#### 7.1.3 外边距
+
+外边距是盒子周围一圈看不到的空间，它会把其他元素推离盒子。
+
+| 外边距写法                       | 作用                      |
+| --------------------------- | ----------------------- |
+| margin:10px;                | 上下左右 4 个外边距都是 10px      |
+| margin:10px 20px 30px 40px; | 上下外边距是10px，左右外边距是20px   |
+| margin:10px 20px 30px 40px; | 上是10px，左右是20px，下是30px   |
+| margin:10px 20px 30px 40px; | 上10px，右20px，下30px，左40px |
+
+单边设置：根据方位名词：top、bottom、left、right（与边框设置一样）
+
+**注意**：
+
+1. 行内元素左右外边距生效，上下外边距无效
+
+2. 行内元素设置宽度和高度也无效
+
+区块元素可以利用 margin 实现**水平居中**
+
+- 块级盒子**必须有宽度**
+
+- 只需要设置**左右外边距为 auto** 即可
+
+**外边距塌陷**：区块元素上下外边距会出现塌陷情况：
+
+1. 嵌套关系（父子）的区块元素
+
+2. 给子盒子设置上下外边距会让父盒子塌陷移动
+
+解决方案：
+
+1. 给父盒子添加上边框。（父盒子本身有边框则不会出现问题）
+
+2. 给父盒子添加上内边距。（同理）
+
+3. 给父盒子添加：overflow:hidden;（同理）
+
+### 7.2 盒子模型-尺寸计算
+
+在 CSS 盒子模型的默认定义里，除了宽度和高度增加盒子大小之外，padding 和 border 都会让盒子变大。
+
+例如：
+
+{% asset_img result7.png %}
+
+![](C:\Users\Lenovo\AppData\Roaming\marktext\images\2026-01-22-16-00-55-image.png)
+
+**解决方法**：box-sizing 用于定义元素的盒子模型计算方式，控制元素的 width 和 height 是否包含 padding 和 border
+
+语法：box-sizing:属性值; 如：box-sizing:border-box;
+
+| 属性值         | 描述                                                                                |
+| ----------- | --------------------------------------------------------------------------------- |
+| content-box | 默认值。元素的 width 和 height 仅包含内容区域，不包含 padding 和 border。<br/>理解：width = 内容的宽度         |
+| border-box  | 元素的 width 和 height 包含内容、padding 和 border。<br/>理解：width = border + padding + 内容的宽度 |
+
+### 7.3 盒子背景
+
+用于设置元素背景相关属性，包括背景颜色、背景图片、背景位置、背景重复方式等
+
+| 属性                    | 作用         | 常用值                                    | 示例代码                          |
+| --------------------- | ---------- | -------------------------------------- | ----------------------------- |
+| background-color      | 设置元素背景颜色   | 颜色名称、十六进制、RGB、透明度                      | background-color:#f0f0f0;     |
+| background-image      | 设置背景图片     | url（image.jpg）                         | background-image:url(bg.png); |
+| background-repeat     | 控制背景图片是否重复 | repeat(默认)、no-repeat、repeat-x、repeat-y | background-repeat:no-repeat;  |
+| background-position   | 定位背景图片位置   | x y（如center top，或者px、%单位）              | background-position:center;   |
+| background-size       | 调整背景图片尺寸   | 默认 auto、cover（覆盖）、contain（包含）或者跟 px、%  | background-size:cover;        |
+| background-attachment | 背景是否随页面滚动  | scroll（默认）、fixed（固定，针对于当前视口）           | background-attachment:fixed;  |
+
+**背景复合写法**：
+
+background:颜色 图片 重复 固定  位置/尺寸;（与顺序无关）
+
+### 7.4 背景渐变
+
+在 CSS 中，可以通过 linear-gradient（线性渐变）和 radial-gradient（径向渐变）为元素添加渐变背景
+
+| 属性 / 方法                              | 描述            | 示例代码                                                                                                                     |
+| ------------------------------------ | ------------- | ------------------------------------------------------------------------------------------------------------------------ |
+| linear-gradient(方向，颜色1 位置，颜色2 位置...) | 线性渐变（方向可控）    | background：linear-gradient(to right，#ff6b6b,#4ecdc4)<br/>background-image：linear-gradient(90deg，#ff6b6b 30%,#4ecdc4 70%) |
+| radial-gradient(形状，颜色1，颜色2...)       | 径向渐变（形状和位置可控） | radial-gradient（circle,#ff9a9e,#fad0c4)                                                                                  |
+
+**线性渐变**：
+
+1. 方向。可以是方位名词，也可以是 deg（角度）
+
+2. 位置。色标的位置，可选填。
+
+**文字背景线性渐变**：
+
+background:linear-gradient(to right,pink,red); 设置背景渐变
+
+-webkit-background-clip:text; 兼容性写法，照顾谷歌老版本浏览器 -webkit-
+
+background-clip:text; 文字范围裁剪背景
+
+-webkit-text-fill-color:transparent; 文本填充颜色设置为透明
+
+### 7.5 盒子阴影
+
+CSS box-shadow 属性用于在元素的框架上添加阴影效果，盒子添加阴影，效果更立体，鼠标经过元素显示阴影，更加突出元素。
+
+语法：
+
+box-shadow:X轴偏移量 Y轴偏移量 模糊半径 扩散半径 颜色;
+
+1. 多个属性用空格隔开
+
+2. X轴偏移量和Y轴偏移量是必须要写的，奇语可省略采取默认值
+
+3. 默认是外阴影，如果改为内阴影要写 inset
+
+```css
+.nav li {
+    box-shadow:0 15px 30px rgba(0,0,0,.1)
+}
+```
+
+### 7.6 过渡
+
+过渡效果用于在元素的属性值发生变化时，平滑地过渡（而不是瞬间切换）
+
+**使用场景**：
+
+1. 鼠标经过图片放大
+
+2. 表单获得焦点，输入框变宽
+
+**语法**：
+
+transition：过度属性 过渡时间
+
+1. 属性值中间空格隔开
+
+2. 过渡属性如果都要变化可以写 all
+
+3. 过渡时间单位是秒s，比如0.2s等
+
+**注意**：过渡写到盒子上，谁做过渡给谁加
+
+### 7.7 样式初始化
+
+浏览器对 HTML 元素有默认样式（如 margin、padding、font-size）。
+
+**初始化的核心目的**：
+
+1. 统一浏览器默认样式，消除差异
+
+2. 减少后续开发中的冗余代码
+
+3. 提高代码可维护性
+
+### 7.8 单行文本溢出显示省略号
+
+```css
+/* 溢出隐藏 */
+overflow:hidden;
+/* 文本溢出显示省略号 */
+text-overflow:ellipsis;
+/* 强制文字一行显示，不换行 */
+white-space:nowrap;
+```
+
+### 7.9 多行文字溢出显示省略号
+
+```css
+/* 旧版弹性盒子布局 */
+display:-webkit-boxx;
+/* 文本垂直排列 */
+-webkit-box-orient:vertical;
+/* 限制显示行数 */
+-webkit-line-clamp:3;
+/* 隐藏溢出内容 */
+overflow:hidden;
+/* 文本溢出显示省略号 */
+text-overflow:ellipsis;
+```
+
+**注意**：盒子的高度需要与限制显示文本的高度一致才能正确显示省略号
