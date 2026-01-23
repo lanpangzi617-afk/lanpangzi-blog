@@ -913,7 +913,7 @@ white-space:nowrap;
 
 ```css
 /* 旧版弹性盒子布局 */
-display:-webkit-boxx;
+display:-webkit-box;
 /* 文本垂直排列 */
 -webkit-box-orient:vertical;
 /* 限制显示行数 */
@@ -925,3 +925,195 @@ text-overflow:ellipsis;
 ```
 
 **注意**：盒子的高度需要与限制显示文本的高度一致才能正确显示省略号
+
+# 8. 字体图标
+
+字体图标是一种以字体形式嵌入网页的技术，允许开发者像使用文字一样通过 CSS 控制图标的样式（如颜色、大小、阴影等）
+
+字体图标要么设计师提供，要么去字体库下载
+
+| 图标库             | 特点                         | 官网链接                    |
+| --------------- | -------------------------- | ----------------------- |
+| Font Awesome    | 图标最全，支持免费版和 pro 付费版        | fontawesome.com         |
+| Bootstrap Icons | Bootstrap 生态内图标，简单易用       | icons.getbootstrap.com  |
+| icomoon         | IcoMoon 最早推出了第一个自定义图标字体生成器 | icomoon.io              |
+| iconfont        | 阿里字体库，包含淘宝图标库和阿里妈妈图标库（免费）  | http://www.iconfont.cn/ |
+
+**使用步骤**：
+
+1. 下载字体图标文件：去官网或者设计师准备字体图标文件，保存到项目目录下。
+
+2. 引入html文件中：根据提供的压缩包，引入CSS文件（link方式）
+
+3. 使用字体图标：一般情况下，我们通过标签调用类名选择对应字体图标。根据实际需求，调整字体样式，比如颜色、大小、位置等
+
+# 9. 精灵图
+
+CSS 精灵图（CSS Sprites）是将多个小图标或图像合并到**一张大图中**，通过调整 **background-position** 属性来显示特定部分的图像技术。
+
+**优势**：
+
+1. 减少 HTTP 请求：多个小图标合并为一张图片，只需一次请求。
+
+2. 提升性能：减少网络开销，尤其适合移动端或低带宽场景。
+
+3. 统一管理：方便维护图标集，避免文件分散。
+
+**使用场景**：
+
+1. 导航菜单图标
+
+2. 按钮操作图标
+
+3. 复杂彩色小图标更适合精灵图
+
+**注意**：通过合理使用 CSS 精灵图，可以有效优化网页性能。对于复杂场景（如高清屏适配），建议结合 SVG 或字体图标使用。
+
+原理：
+
+1. 给盒子添加背景图片
+
+2. 通过背景定位（background-position）移动位置对齐
+
+3. 注意网页坐标不同。
+
+# 10. CSS布局
+
+CSS 布局是网页设计的核心技术之一，用于控制元素在页面中的排列方式
+
+1. normal：正常布局
+
+2. display：模式转换布局
+
+3. flexbox：弹性布局
+
+4. grid：网格布局
+
+5. position：定位布局
+
+6. column：多列布局
+
+### 10.1 display 转换
+
+display 属性允许我们更改默认的显示方式
+
+1. display:block; 转换为区块元素（常用）
+
+2. display:inline; 转换为行内元素（罕见）
+
+3. display:inline-block; 转换为行内块元素（较少）
+
+### 10.2 浮动(被放弃的布局方式)
+
+浮动（float）可以让元素脱离文档流，向左或享有浮动，直到碰到父容器边缘或其他浮动元素
+
+| 属性值   | 作用      | 示例           |
+| ----- | ------- | ------------ |
+| left  | 左侧浮动    | float:left;  |
+| right | 右侧浮动    | float:right; |
+| none  | 默认值，不浮动 | float:none;  |
+
+**浮动带来的影响**：
+
+1. 父盒子没有高度。（很多情况下不能给父亲指定高度）
+
+2. 子元素浮动。
+
+3. 影响其他盒子布局。
+
+**解决**：清除浮动，也可理解为闭合浮动，就是让浮动的元素尽量控制在父盒子内，不要影响其他盒子。
+
+**清除浮动主要有四种方式**：
+
+1. 额外标签法：在浮动元素的最后面，新增一个块级标签。添加属性：clear:both;
+
+2. 单伪元素清除浮动：父元素添加伪元素。
+
+3. 双伪元素清除浮动：父元素添加双伪元素。
+
+4. overflow 清除浮动：父元素添加 overflow:hidden;。
+
+### 10.3 弹性盒子（主流）
+
+Flexbox 是 CSS 弹性盒子布局模块（Flexible Box Layout Module）的缩写，可以快速实现元素的对齐、分布和空间分配。
+
+**弹性盒子核心**：
+
+1. 父控子（亲父子）
+   
+   - 父盒子控制子盒子如何排列布局
+   
+   - 父盒子称为容器，子盒子成为项目
+
+2. 主轴和交叉轴（侧轴）
+   
+   - 主轴默认水平方向，交叉轴默认垂直方向（可以更改）
+
+**容器（父盒子）属性**：
+
+| 属性              | 作用                                         | 示例                                       |
+| --------------- | ------------------------------------------ | ---------------------------------------- |
+| display         | 定义元素为 Flex 容器                              | .container{display:flex;}                |
+| flex-direction  | 定义主轴方向（项目排列方向）                             | .container{flex-direction:row;}          |
+| flex-wrap       | 控制是否换行                                     | .container{flex-wrap:wrap;}              |
+| justify-content | 定义主轴上的对齐方式（整体分布）                           | .container{justify-content:center;}      |
+| align-items     | 定义交叉轴上的对齐方式（单行时整体对齐                        | .container{align-items:center;}          |
+| align-content   | 定义多行是交叉轴上的对齐方式（仅当 flex-wrap:wrap 且内容换行时生效） | .container{align-content:space-between;} |
+
+**项目（子盒子）属性**：
+
+| 属性          | 作用                                    | 示例                        |
+| ----------- | ------------------------------------- | ------------------------- |
+| order       | 定义项目的排列顺序（默认0，数值越小越靠前）                | .item{order:-1;}          |
+| flex-grow   | 定义项目的放大比例（默认0，即不放大）                   | .item{flex-grow:1;}       |
+| flex-shrink | 定义项目的缩小比例（默认1，空间不足时等比缩小）              | {flex-shrink:0;}          |
+| flex-basis  | 定义项目在主轴方向上的初始大小（优先级高于 width / height） | .item{flex-basis:200px;}  |
+| flex        | flex-grow flex-shrink flex-basis 的简写  | .item{flex:1;}            |
+| align-self  | 覆盖容器的 align-items，单独定义某个项目的交叉轴对齐方式    | .item{align-self:center;} |
+
+容器（父盒子）设置 **display:flex**; 可以让子盒子按照主轴方式排列
+
+- 如果子元素有大小，则按照给定大小来显示。
+
+- 如果子元素没有大小，则拉伸充满父容器。
+
+- 若子元素总宽度超过容器宽度，默认会压缩子元素。
+
+**大部分情况下**，父容器设置 display:flex，子元素设定大小
+
+#### 10.3.1 **justify-content 定义主轴上的对齐方式**
+
+| 属性值           | 效果       | 示例                   |
+| ------------- | -------- | -------------------- |
+| flex-start    | 左对齐（默认）  | 子元素靠左排列              |
+| flex-end      | 右对齐      | 子元素靠右排列              |
+| center        | 居中对齐     | 子元素居中                |
+| space-between | 两端对齐     | 首个子元素放置于七点，末尾元素放置于终点 |
+| space-around  | 项目两端间隔相等 | 每个子元素周围分配相同的空间       |
+| space-evenly  | 项目间隔均匀分布 | 每个子元素之间的间隔相等         |
+
+{% asset_img result8.png %}
+
+![](C:\Users\Lenovo\AppData\Roaming\marktext\images\2026-01-23-18-28-35-image.png)
+
+#### 10.3.2 align-items 定义交叉轴上的对齐方式（单行时整体对齐）
+
+| 属性值        | 作用描述                    |
+| ---------- | ----------------------- |
+| flex-start | 项目在交叉轴起点对齐（默认）          |
+| flex-end   | 项目在交叉轴终点对齐              |
+| center     | 项目在交叉轴居中对齐              |
+| stretch    | 项目拉伸填充整个容器高度（需子项目无固定高度） |
+
+{% asset_img result9.png %}
+
+![](C:\Users\Lenovo\AppData\Roaming\marktext\images\2026-01-23-18-38-35-image.png)
+
+#### 10.3.3 flex-direction定义主轴方向（改变主轴方向）
+
+| 属性值            | 描述                   | 示例效果                  | 代码示例                                       |
+| -------------- | -------------------- | --------------------- | ------------------------------------------ |
+| row            | 默认值。子元素沿水平主轴（从左到右）排列 | A B C（横向排列）           | .container{flex-direction:row;}            |
+| row-reverse    | 子元素沿水平主轴反向排列（从右到左）   | C B A（反向横向排列）         | .container{flex-direction:reverse;}        |
+| column         | 子元素沿垂直主轴（从上到下）排列     | A<br/>B<br/>C（纵向排列）   | .container{flex-direction:column;}         |
+| column-reverse | 子元素沿垂直主轴反向排列（从下到上）   | C<br/>B<br/>A（反向纵向排列） | .container{flex-direction:column-reverse;} |
