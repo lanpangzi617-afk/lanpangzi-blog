@@ -147,7 +147,7 @@ p {
     padding: 0;
     /* 让块级的盒子水平居中展示 */
     margin:0 auto;
-    bod-sizing: border-box;
+    box-sizing: border-box;
 }
 ```
 
@@ -932,12 +932,12 @@ text-overflow:ellipsis;
 
 字体图标要么设计师提供，要么去字体库下载
 
-| 图标库             | 特点                         | 官网链接                    |
-| --------------- | -------------------------- | ----------------------- |
-| Font Awesome    | 图标最全，支持免费版和 pro 付费版        | fontawesome.com         |
-| Bootstrap Icons | Bootstrap 生态内图标，简单易用       | icons.getbootstrap.com  |
-| icomoon         | IcoMoon 最早推出了第一个自定义图标字体生成器 | icomoon.io              |
-| iconfont        | 阿里字体库，包含淘宝图标库和阿里妈妈图标库（免费）  | http://www.iconfont.cn/ |
+| 图标库             | 特点                         | 官网链接                        |
+| --------------- | -------------------------- | --------------------------- |
+| Font Awesome    | 图标最全，支持免费版和 pro 付费版        | fontawesome.com             |
+| Bootstrap Icons | Bootstrap 生态内图标，简单易用       | icons.getbootstrap.com      |
+| icomoon         | IcoMoon 最早推出了第一个自定义图标字体生成器 | icomoon.io                  |
+| iconfont        | 阿里字体库，包含淘宝图标库和阿里妈妈图标库（免费）  | http://www.iconfont.border/ |
 
 **使用步骤**：
 
@@ -1117,3 +1117,26 @@ Flexbox 是 CSS 弹性盒子布局模块（Flexible Box Layout Module）的缩�
 | row-reverse    | 子元素沿水平主轴反向排列（从右到左）   | C B A（反向横向排列）         | .container{flex-direction:reverse;}        |
 | column         | 子元素沿垂直主轴（从上到下）排列     | A<br/>B<br/>C（纵向排列）   | .container{flex-direction:column;}         |
 | column-reverse | 子元素沿垂直主轴反向排列（从下到上）   | C<br/>B<br/>A（反向纵向排列） | .container{flex-direction:column-reverse;} |
+
+**注意**：行内元素设置了 flex ，可以直接设置宽高
+
+#### 10.3.4 flex-wrap 控制是否换行
+
+| 属性值          | 排列效果             |
+| ------------ | ---------------- |
+| nowrap       | 不换行，全部横向排列，可能被压缩 |
+| wrap         | 换行               |
+| wrap-reverse | 换行翻转（了解即可）       |
+
+#### 10.3.5 align-content 定义多行时交叉轴上的对齐方式（仅当 flex-wrap:wrap 且内容换行时生效）
+
+| 属性值           | 效果       | 示例                   |
+| ------------- | -------- | -------------------- |
+| flex-start    | 上对齐      | 子元素靠上排列              |
+| flex-end      | 下对齐      | 子元素靠下排列              |
+| center        | 居中对齐     | 子元素居中                |
+| space-between | 两端对齐     | 首个子元素放置于七点，末尾元素放置于终点 |
+| space-around  | 项目两端间隔相等 | 每个子元素周围分配相同的空间       |
+| space-evenly  | 项目间隔均匀分布 | 每个子元素之间的间隔相等         |
+
+开发中大部分情况下，该属性使用较少，大部分元素顺序排列即可
